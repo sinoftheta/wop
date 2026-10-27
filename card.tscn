@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://blafhqp5pjhn4"]
+
+[ext_resource type="Texture2D" uid="uid://bagrrm0wh47a2" path="res://card.png" id="1_kikvd"]
+[ext_resource type="Script" uid="uid://s6hddk1qu0fp" path="res://card.gd" id="1_rjlel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf75p"]
+size = Vector2(36, 46)
+
+[node name="Card" type="Node2D" unique_id=1902789426]
+script = ExtResource("1_rjlel")
+
+[node name="Handle" type="Node2D" parent="." unique_id=179444546]
+top_level = true
+
+[node name="Area2D" type="Area2D" parent="Handle" unique_id=386927900]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle/Area2D" unique_id=1468689948]
+shape = SubResource("RectangleShape2D_qf75p")
+
+[node name="HoverTX" type="Node2D" parent="Handle" unique_id=1521387307]
+
+[node name="Face" type="Node2D" parent="Handle/HoverTX" unique_id=305569450]
+editor_description = "this should maybe be a subviewport idk"
+
+[node name="Label" type="Label" parent="Handle/HoverTX/Face" unique_id=1774739910]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Handle/HoverTX/Face" unique_id=406594338]
+texture = ExtResource("1_kikvd")

@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="wop"
+run/main_scene="uid://dess2gctvp2j"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Cards="*uid://cv6hysf4j1qge"
+Constants="*uid://cikq8l0bwdy3r"
 
 [display]
 
