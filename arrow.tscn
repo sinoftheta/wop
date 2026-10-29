@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://df6q0vcgwhg8i"]
+
+[ext_resource type="Script" uid="uid://da4acgaucwck6" path="res://arrow.gd" id="1_l5ahi"]
+[ext_resource type="Texture2D" uid="uid://cf38u7o3lioyd" path="res://arrow_part.png" id="2_2ndhl"]
+[ext_resource type="Texture2D" uid="uid://catol7t2xxvbe" path="res://arrow_tip.png" id="3_acd0x"]
+
+[node name="Arrow" type="Node2D" unique_id=1844010288]
+script = ExtResource("1_l5ahi")
+
+[node name="Part0" type="Sprite2D" parent="." unique_id=1188719810]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part2" type="Sprite2D" parent="." unique_id=1604429288]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part3" type="Sprite2D" parent="." unique_id=1454945864]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part4" type="Sprite2D" parent="." unique_id=1718662828]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part5" type="Sprite2D" parent="." unique_id=1203202516]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part6" type="Sprite2D" parent="." unique_id=1116736401]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part7" type="Sprite2D" parent="." unique_id=35754454]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part8" type="Sprite2D" parent="." unique_id=309714176]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part9" type="Sprite2D" parent="." unique_id=1049188451]
+texture = ExtResource("2_2ndhl")
+
+[node name="Part10" type="Sprite2D" parent="." unique_id=1312767627]
+texture = ExtResource("3_acd0x")

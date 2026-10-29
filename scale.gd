@@ -51,12 +51,25 @@ func _process(delta: float) -> void:
 
 func _draw() -> void:
 	draw_circle(Vector2.RIGHT.rotated(angle) * 50, 2, Color.RED)
+	
+	
+	
 
+
+
+var debug_left:int = 0
+var debug_right:int = 0
 
 func _on_debug_inc_balance_pressed() -> void:
+	
+	debug_right += 1
+	
 	animate_balance(1, animated_balance + 1)
 	%DebugBalanceReadout.text = str(animated_balance)
 
 func _on_debug_dec_balance_pressed() -> void:
+	
+	debug_left += 1
+	
 	animate_balance(-1, animated_balance - 1)
 	%DebugBalanceReadout.text = str(animated_balance)

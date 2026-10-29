@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cbl25h0jd5boe"]
+
+[node name="PlayHud" type="Node2D" unique_id=2102686607]
+
+[node name="Scale" type="Node2D" parent="." unique_id=1725980921]
+scale = Vector2(0.75, 0.75)
+
+[node name="Balance" type="Label" parent="Scale" unique_id=930882123]
+offset_left = 145.0
+offset_top = 94.0
+offset_right = 206.0
+offset_bottom = 143.0
+text = "Balance
+0"
+horizontal_alignment = 1
+
+[node name="Money" type="Label" parent="Scale" unique_id=1336719039]
+offset_left = 147.0
+offset_top = 65.0
+offset_right = 222.0
+offset_bottom = 88.0
+text = "Money $0"
+
+[node name="Tokens" type="Label" parent="Scale" unique_id=488348990]
+offset_left = 147.0
+offset_top = 42.0
+offset_right = 231.0
+offset_bottom = 65.0
+text = "Tokens 0/5"
+
+[node name="Round" type="Label" parent="Scale" unique_id=1527004722]
+offset_left = 147.0
+offset_top = 20.0
+offset_right = 227.0
+offset_bottom = 43.0
+text = "Round 1/3"
+
+[node name="Level" type="Label" parent="Scale" unique_id=615816042]
+offset_left = 147.0
+offset_top = -1.0
+offset_right = 216.0
+offset_bottom = 22.0
+text = "Level 1"
+
+[node name="RemainingTurns" type="Label" parent="Scale" unique_id=1137254160]
+offset_left = 226.0
+offset_top = 192.0
+offset_right = 295.0
+offset_bottom = 215.0
+text = "x3"
+
+[node name="EndTurn" type="Button" parent="Scale" unique_id=1648649776]
+offset_left = 141.0
+offset_top = 187.0
+offset_right = 217.0
+offset_bottom = 218.0
+text = "end turn"
+
+[node name="CashOut" type="Button" parent="Scale" unique_id=1871459622]
+offset_left = 141.0
+offset_top = 147.0
+offset_right = 215.0
+offset_bottom = 178.0
+text = "cash out"
+
+[node name="Energy" type="Label" parent="Scale" unique_id=1793770402]
+offset_left = -125.333336
+offset_top = 160.0
+offset_right = -85.333336
+offset_bottom = 183.0
+text = "5"

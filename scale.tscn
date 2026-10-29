@@ -9,57 +9,55 @@
 [node name="Scale" type="Node2D" unique_id=592840729]
 script = ExtResource("1_03o5o")
 
-[node name="LeftArea" type="Area2D" parent="." unique_id=644269826]
-
-[node name="RightArea" type="Area2D" parent="." unique_id=1761176112]
-
 [node name="Base" type="Sprite2D" parent="." unique_id=1895908765]
+show_behind_parent = true
 position = Vector2(0, -24)
 texture = ExtResource("1_6s6ql")
 
 [node name="LeftPlate" type="Sprite2D" parent="." unique_id=702723360]
 unique_name_in_owner = true
+show_behind_parent = true
 position = Vector2(-48, 0)
 texture = ExtResource("2_03o5o")
 
 [node name="RightPlate" type="Sprite2D" parent="." unique_id=387648366]
 unique_name_in_owner = true
+show_behind_parent = true
 position = Vector2(49, 0)
 texture = ExtResource("2_03o5o")
 
 [node name="Bar" type="Sprite2D" parent="." unique_id=1026868260]
 unique_name_in_owner = true
+show_behind_parent = true
 position = Vector2(0, -60)
 texture = ExtResource("3_1i3r7")
 centered = false
 offset = Vector2(-69.5, -3)
-
-[node name="Temp" type="Camera2D" parent="." unique_id=692485593]
 
 [node name="SOD" type="Node" parent="." unique_id=314017106]
 unique_name_in_owner = true
 script = ExtResource("5_1i3r7")
 
 [node name="DebugIncBalance" type="Button" parent="." unique_id=1301371007]
-offset_left = 5.0
-offset_top = 42.0
-offset_right = 36.0
-offset_bottom = 73.0
+offset_left = 124.0
+offset_top = -47.0
+offset_right = 155.0
+offset_bottom = -16.0
 text = "inc"
 
 [node name="DebugDecBalance" type="Button" parent="." unique_id=1995661590]
-offset_left = -41.0
-offset_top = 42.0
-offset_right = -5.0
-offset_bottom = 73.0
+offset_left = 85.0
+offset_top = -47.0
+offset_right = 121.0
+offset_bottom = -16.0
 text = "dec"
 
 [node name="DebugBalanceReadout" type="Label" parent="." unique_id=1225550217]
 unique_name_in_owner = true
-offset_left = -20.0
-offset_top = 78.0
-offset_right = 20.0
-offset_bottom = 101.0
+offset_left = 100.0
+offset_top = -13.0
+offset_right = 140.0
+offset_bottom = 10.0
 
 [connection signal="pressed" from="DebugIncBalance" to="." method="_on_debug_inc_balance_pressed"]
 [connection signal="pressed" from="DebugDecBalance" to="." method="_on_debug_dec_balance_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="wop"
-run/main_scene="uid://dess2gctvp2j"
+run/main_scene="uid://dnj16p66qi4j1"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,9 @@ Constants="*uid://cikq8l0bwdy3r"
 
 [display]
 
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

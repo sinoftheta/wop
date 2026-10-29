@@ -1,9 +1,37 @@
 [gd_scene format=3 uid="uid://dnj16p66qi4j1"]
 
 [ext_resource type="PackedScene" uid="uid://blafhqp5pjhn4" path="res://card.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dess2gctvp2j" path="res://scale.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://df6q0vcgwhg8i" path="res://arrow.tscn" id="3_h2yge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf75p"]
+size = Vector2(70, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh502"]
+size = Vector2(70, 100)
 
 [node name="Main" type="Node2D" unique_id=768261063]
 
-[node name="Card" parent="." unique_id=1902789426 instance=ExtResource("1_ig7tw")]
+[node name="Scale" parent="." unique_id=592840729 instance=ExtResource("2_0xm2m")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1368938675]
+
+[node name="HandCardZone" type="Node2D" parent="." unique_id=1403933631]
+position = Vector2(0, 60)
+
+[node name="Card" parent="HandCardZone" unique_id=1902789426 instance=ExtResource("1_ig7tw")]
+
+[node name="ScaleLeftPlateArea" type="Area2D" parent="." unique_id=197186447]
+position = Vector2(-50, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaleLeftPlateArea" unique_id=1817694800]
+shape = SubResource("RectangleShape2D_qf75p")
+
+[node name="ScaleRightPlateArea" type="Area2D" parent="." unique_id=1090705801]
+position = Vector2(50, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaleRightPlateArea" unique_id=651735231]
+shape = SubResource("RectangleShape2D_rh502")
+
+[node name="Arrow" parent="." unique_id=1844010288 instance=ExtResource("3_h2yge")]
+p0 = Vector2(11, 0)

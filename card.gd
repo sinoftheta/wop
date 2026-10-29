@@ -4,5 +4,10 @@ extends Node2D
 var selected:bool
 var hovered:bool
 
-func _process(_delta: float) -> void:
+func anchor_positoin() -> void:
 	pass
+
+func _process(_delta: float) -> void:
+	
+	## move Handle towards position
+	%Handle.global_position = lerp(%Handle.global_position, get_parent().global_position, 0.5)
