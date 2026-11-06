@@ -34,4 +34,5 @@ position = Vector2(50, -25)
 shape = SubResource("RectangleShape2D_rh502")
 
 [node name="Arrow" parent="." unique_id=1844010288 instance=ExtResource("3_h2yge")]
+z_index = 1
 p0 = Vector2(11, 0)

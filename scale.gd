@@ -49,14 +49,10 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	delta_balance_impulse *= 0.5
 
-func _draw() -> void:
+func debug_draw() -> void:
 	draw_circle(Vector2.RIGHT.rotated(angle) * 50, 2, Color.RED)
 	
 	
-	
-
-
-
 var debug_left:int = 0
 var debug_right:int = 0
 

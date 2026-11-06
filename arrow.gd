@@ -1,5 +1,23 @@
 class_name Arrow extends Node2D
 
+func _ready() -> void:
+	SignalBus.card_choosing_side_updated.connect(_on_card_choosing_side_updated)
+	
+	set_process(false)
+	visible = false
+
+var cur_card:Card
+func _on_card_choosing_side_updated(card:Card) -> void:
+	if card:
+		cur_card = card
+		visible = true
+		set_process(true)
+	else:
+		cur_card = null
+		visible = false
+		set_process(false)
+
+
 ## one of these is start, one is end, and one is control
 @export var p0:Vector2 ## start point
 var p1:Vector2 ## control point
@@ -9,7 +27,7 @@ var p2:Vector2 ## end point
 ## https://en.wikipedia.org/wiki/B%C3%A9zier_curve
 func _process(_delta: float) -> void:
 	
-	p0 = Vector2.ZERO ## TODO: make this the position of the selected card
+	p0 = cur_card.handle_position
 	p2 = get_global_mouse_position()
 	
 	p1.y = (p2.y - p0.y) * 2.0 ## control is vertically (proportinally) above end point
