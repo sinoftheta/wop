@@ -2,6 +2,9 @@
 extends Node
 
 
+## what if you combine turns and rounds... yeah woah that might be dope??
+## simpler = better
+
 ## pure logic
 var hand_size:int
 var tokens:int

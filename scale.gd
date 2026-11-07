@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 	
 	%RightPlate.position = Vector2.RIGHT.rotated(angle) * 50
 	%LeftPlate.position  = Vector2.LEFT .rotated(angle) * 50
-	(%LeftPlatePile as PlatePile).pinned_point_offset = %LeftPlate.position + Vector2(0, 20)
+	#(%LeftPlatePile as PlatePile).pinned_point_offset = %LeftPlate.position + Vector2(0, 20)
 	
 	queue_redraw()
 	delta_balance_impulse *= 0.5

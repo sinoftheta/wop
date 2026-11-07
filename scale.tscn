@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bmyropswljicm" path="res://scale_plate.png" id="2_03o5o"]
 [ext_resource type="Texture2D" uid="uid://feiagpjktore" path="res://scale_bar.png" id="3_1i3r7"]
 [ext_resource type="Script" uid="uid://4k86astmvkgs" path="res://sod.gd" id="5_1i3r7"]
-[ext_resource type="Script" uid="uid://cawvsyxm16vre" path="res://plate_points.gd" id="6_th1oe"]
 
 [node name="Scale" type="Node2D" unique_id=592840729]
 script = ExtResource("1_03o5o")
@@ -59,11 +58,6 @@ offset_left = 100.0
 offset_top = -13.0
 offset_right = 140.0
 offset_bottom = 10.0
-
-[node name="LeftPlatePile" type="Node2D" parent="." unique_id=1388719360]
-unique_name_in_owner = true
-top_level = true
-script = ExtResource("6_th1oe")
 
 [connection signal="pressed" from="DebugIncBalance" to="." method="_on_debug_inc_balance_pressed"]
 [connection signal="pressed" from="DebugDecBalance" to="." method="_on_debug_dec_balance_pressed"]
