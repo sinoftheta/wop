@@ -1,0 +1,15 @@
+"weighing your options" -> "a balanced diet"
+gubbies balanced diet
+keywords:
+	
+	"feed" X
+	gubbies food meter increases by X when you feed her
+	
+	"snack" X
+	gubbies food meter increases by X when you place this card on the scale
+	
+	
+	ehh not bad, keep at it. These kinda verbs might not be needed??? idk
+	
+	
+	what if you feed the blob/monster/gubbie "food" "trash" and "medecine/pills"

@@ -50,10 +50,41 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	delta_balance_impulse *= 0.5
 
-func debug_draw() -> void:
-	draw_circle(Vector2.RIGHT.rotated(angle) * 50, 2, Color.RED)
+func _draw() -> void:
+	#draw_circle(Vector2.RIGHT.rotated(angle) * 50, 2, Color.RED)
 	
+	## draw debug left  objects on the scale
+	for i:int in debug_left:
+		draw_circle((
+				%LeftPlate.position + 
+				pile_base_points[i % 3] +
+				(i / 3) * Vector2(0,-pile_spacing) ## x could be a random offset here
+			),
+			1,
+			Color.AQUA
+		)
+		
+		
+	## draw debug right objects on the scale
+	for i:int in debug_right:
+		draw_circle((
+				%RightPlate.position + 
+				pile_base_points[i % 3] +
+				(i / 3) * Vector2(0,-pile_spacing) ## x could be a random offset here
+			),
+			1,
+			Color.CRIMSON
+		)
+
 	
+
+const pile_spacing:float = 3
+const pile_base_points:Array[Vector2] = [
+	Vector2(-10,-pile_spacing), ## left
+	Vector2.ZERO, ## middle
+	Vector2(10,-pile_spacing) ## right
+]
+
 var debug_left:int = 0
 var debug_right:int = 0
 

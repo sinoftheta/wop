@@ -6,11 +6,12 @@ extends Node
 ## simpler = better
 
 ## pure logic
+
+var points:int
+
 var hand_size:int
-var tokens:int
 var money:int
 
-var game_round:int
 var level:int
 
 var max_turns:int
@@ -21,6 +22,8 @@ var energy:int
 
 var shop_reroll_price:int
 
+
+var cards_in_party:Array
 var cards_on_left_plate:Array
 var cards_on_right_plate:Array
 var cards_in_draw_pile:Array
@@ -28,6 +31,9 @@ var cards_in_hand:Array
 var cards_in_discard_pile:Array
 
 ## animation/player input/other stuff
+
+## replace this/put this in an InputState autoload or variable?
+## maybe it should be a stack instead of a single state?
 var card_choosing_side:Card:
 	set(card):
 		card_choosing_side = card
