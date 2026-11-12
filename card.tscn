@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bagrrm0wh47a2" path="res://card.png" id="1_kikvd"]
 [ext_resource type="Script" uid="uid://s6hddk1qu0fp" path="res://card.gd" id="1_rjlel"]
+[ext_resource type="Script" uid="uid://dboxwtqupxfjd" path="res://card_area.gd" id="2_e484p"]
+[ext_resource type="Script" uid="uid://bfkasivfhg8cy" path="res://sod_2.gd" id="3_q5obu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf75p"]
 size = Vector2(36, 46)
@@ -14,20 +16,33 @@ unique_name_in_owner = true
 top_level = true
 
 [node name="Area2D" type="Area2D" parent="Handle" unique_id=386927900]
+unique_name_in_owner = true
+script = ExtResource("2_e484p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle/Area2D" unique_id=1468689948]
+[node name="CollisionShape" type="CollisionShape2D" parent="Handle/Area2D" unique_id=1468689948]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_qf75p")
 
-[node name="HoverTX" type="Node2D" parent="Handle" unique_id=1521387307]
+[node name="Faux3DTX" type="Node2D" parent="Handle" unique_id=1254310133]
+unique_name_in_owner = true
 
-[node name="Face" type="Node2D" parent="Handle/HoverTX" unique_id=305569450]
+[node name="HoverTX" type="Node2D" parent="Handle/Faux3DTX" unique_id=1521387307]
+unique_name_in_owner = true
+
+[node name="Face" type="Node2D" parent="Handle/Faux3DTX/HoverTX" unique_id=305569450]
 editor_description = "this should maybe be a subviewport idk"
 
-[node name="Label" type="Label" parent="Handle/HoverTX/Face" unique_id=1774739910]
+[node name="Weight" type="Label" parent="Handle/Faux3DTX/HoverTX/Face" unique_id=1774739910]
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Handle/HoverTX/Face" unique_id=406594338]
+[node name="Card" type="Sprite2D" parent="Handle/Faux3DTX/HoverTX/Face" unique_id=406594338]
 texture = ExtResource("1_kikvd")
+
+[node name="Icon" type="Sprite2D" parent="Handle/Faux3DTX/HoverTX/Face" unique_id=1656920118]
+
+[node name="SOD2" type="Node" parent="." unique_id=1715663135]
+unique_name_in_owner = true
+script = ExtResource("3_q5obu")
 
 [connection signal="input_event" from="Handle/Area2D" to="." method="_on_area_2d_input_event"]
