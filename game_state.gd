@@ -36,6 +36,7 @@ var cards_in_discard_pile:Array
 ## maybe it should be a stack instead of a single state?
 var card_choosing_side:Card:
 	set(card):
+		if card_choosing_side == card: return
 		card_choosing_side = card
 		SignalBus.card_choosing_side_updated.emit(card)
 

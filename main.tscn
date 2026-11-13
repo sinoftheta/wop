@@ -14,13 +14,14 @@ size = Vector2(70, 100)
 [node name="Main" type="Node2D" unique_id=768261063]
 
 [node name="Scale" parent="." unique_id=592840729 instance=ExtResource("2_0xm2m")]
+scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1368938675]
 
 [node name="HandCardZone" type="Node2D" parent="." unique_id=1403933631]
-position = Vector2(0, 60)
+position = Vector2(0, 130)
 script = ExtResource("2_1bvp3")
-length = 100.0
+length = 300.0
 
 [node name="Card" parent="HandCardZone" unique_id=1902789426 instance=ExtResource("1_ig7tw")]
 
@@ -47,5 +48,5 @@ position = Vector2(50, -25)
 shape = SubResource("RectangleShape2D_rh502")
 
 [node name="Arrow" parent="." unique_id=1844010288 instance=ExtResource("3_h2yge")]
-z_index = 1
+z_index = 4
 p0 = Vector2(11, 0)
