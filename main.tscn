@@ -4,14 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://dess2gctvp2j" path="res://scale.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cx42ke3f8l4fi" path="res://card_zone.gd" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://df6q0vcgwhg8i" path="res://arrow.tscn" id="3_h2yge"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf75p"]
-size = Vector2(70, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh502"]
-size = Vector2(70, 100)
+[ext_resource type="PackedScene" uid="uid://b8jsnh0othsx8" path="res://scale_plate.tscn" id="4_lquwl"]
 
 [node name="Main" type="Node2D" unique_id=768261063]
+
+[node name="BGLayer" type="CanvasLayer" parent="." unique_id=2141716641]
+layer = -1
+
+[node name="BG" type="ColorRect" parent="BGLayer" unique_id=1846490255]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Scale" parent="." unique_id=592840729 instance=ExtResource("2_0xm2m")]
 scale = Vector2(1.5, 1.5)
@@ -35,17 +41,12 @@ length = 300.0
 
 [node name="Card6" parent="HandCardZone" unique_id=430100244 instance=ExtResource("1_ig7tw")]
 
-[node name="ScaleLeftPlateArea" type="Area2D" parent="." unique_id=197186447]
-position = Vector2(-50, -25)
+[node name="ScalePlateL" parent="." unique_id=1880027680 instance=ExtResource("4_lquwl")]
+position = Vector2(-72, -18)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaleLeftPlateArea" unique_id=1817694800]
-shape = SubResource("RectangleShape2D_qf75p")
-
-[node name="ScaleRightPlateArea" type="Area2D" parent="." unique_id=1090705801]
-position = Vector2(50, -25)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScaleRightPlateArea" unique_id=651735231]
-shape = SubResource("RectangleShape2D_rh502")
+[node name="ScalePlateR" parent="." unique_id=1528707431 instance=ExtResource("4_lquwl")]
+position = Vector2(75, -18)
+side = 1
 
 [node name="Arrow" parent="." unique_id=1844010288 instance=ExtResource("3_h2yge")]
 z_index = 4

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b8jsnh0othsx8"]
+
+[ext_resource type="Script" uid="uid://dcyce0yxm6r1b" path="res://scale_plate.gd" id="1_4qsc8"]
+[ext_resource type="Texture2D" uid="uid://cj0v4r0l6vnk0" path="res://plate_zone_outline.png" id="1_ql53e"]
+[ext_resource type="Script" uid="uid://d21jch5peby5w" path="res://scale_plate_area.gd" id="3_14k2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf75p"]
+size = Vector2(70, 100)
+
+[node name="ScalePlate" type="Node2D" unique_id=1880027680]
+script = ExtResource("1_4qsc8")
+
+[node name="ZoneOutline" type="Node2D" parent="." unique_id=2088346102]
+unique_name_in_owner = true
+
+[node name="0" type="Sprite2D" parent="ZoneOutline" unique_id=1802896659]
+position = Vector2(29, 44)
+texture = ExtResource("1_ql53e")
+
+[node name="1" type="Sprite2D" parent="ZoneOutline" unique_id=774999380]
+position = Vector2(-29, 44)
+texture = ExtResource("1_ql53e")
+flip_h = true
+
+[node name="2" type="Sprite2D" parent="ZoneOutline" unique_id=1376736820]
+position = Vector2(-29, -44)
+texture = ExtResource("1_ql53e")
+flip_h = true
+flip_v = true
+
+[node name="3" type="Sprite2D" parent="ZoneOutline" unique_id=2010203307]
+position = Vector2(29, -44)
+texture = ExtResource("1_ql53e")
+flip_v = true
+
+[node name="Area" type="Area2D" parent="." unique_id=1417068188]
+unique_name_in_owner = true
+script = ExtResource("3_14k2y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=558245069]
+shape = SubResource("RectangleShape2D_qf75p")

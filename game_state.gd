@@ -41,5 +41,5 @@ var card_choosing_side:Card:
 		SignalBus.card_choosing_side_updated.emit(card)
 
 
-#func play_card(_side:bool) -> void:
-	#pass
+func play_card(card:Card, side:Constants.Side) -> void:
+	prints("playing", card, "on", Constants.Side.keys()[side])

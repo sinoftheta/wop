@@ -62,14 +62,14 @@ func _physics_process(delta:float) -> void:
 		hovered_area = card_areas[0]
 		hover_type = HoverType.card
 	elif other_areas.size() > 0:
-		pass
+		hovered_area = other_areas[0]
+		hover_type = HoverType.other
 	else:
 		hovered_area = null
 		hover_type = HoverType.nothing
 	
 	## act depending on the hovered area I guess
 	if Input.is_action_just_pressed("mouse_left"):
-		print("huh")
 		match hover_type:
 			HoverType.nothing:
 				GameState.card_choosing_side = null
@@ -83,9 +83,8 @@ func _physics_process(delta:float) -> void:
 				
 			HoverType.other:
 				if GameState.card_choosing_side:
-					print("playing card on ")
-					## GameState.play_card(GameState.card_choosing_side, TODO_DETERMINE_SIDE)
-					pass
+					## NOTE: we assume the only "other" area is ScalePlateArea
 					
-				
+					GameState.play_card(GameState.card_choosing_side, (hovered_area as ScalePlateArea).side)
+					GameState.card_choosing_side = null
 			

@@ -80,7 +80,7 @@ func zone_anchor_position() -> Vector2:
 func _process(delta: float) -> void:
 	update_faux_3d(delta)
 	
-	var selected_offset:Vector2 = zone.b_hat.orthogonal() * -5.0 if selected else Vector2.ZERO
+	var selected_offset:Vector2 = zone.b_hat.orthogonal() * -25.0 if selected else Vector2.ZERO
 	var render_destination:Vector2 = zone_anchor_position() + zone.position + selected_offset
 	
 	## this I could make into a SOD
@@ -119,6 +119,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		hover_point = (event as InputEventMouseMotion).position
 		
 func update_faux_3d(delta:float) -> void:
+	##TODO: this is very broken
 	var magnitude:float = 0.01
 	var bias:float = minf(1.0, delta * 20)
 	if hovered:# or dragged:
