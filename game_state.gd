@@ -40,6 +40,17 @@ var card_choosing_side:Card:
 		card_choosing_side = card
 		SignalBus.card_choosing_side_updated.emit(card)
 
+## UHHH man lol
+func update_balance() -> int:
+	return 0
 
 func play_card(card:Card, side:Constants.Side) -> void:
 	prints("playing", card, "on", Constants.Side.keys()[side])
+	
+	## animate put card on scale
+	
+	## animate balance change
+	SignalBus.balance_changed.emit(0)
+	
+	
+	
