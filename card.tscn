@@ -15,9 +15,6 @@ script = ExtResource("1_rjlel")
 unique_name_in_owner = true
 top_level = true
 
-[node name="OnScaleIcon" type="Sprite2D" parent="Handle" unique_id=432006781]
-unique_name_in_owner = true
-
 [node name="Area2D" type="Area2D" parent="Handle" unique_id=386927900]
 unique_name_in_owner = true
 script = ExtResource("2_e484p")

@@ -1,5 +1,6 @@
 "weighing your options" -> "a balanced diet"
 gubbies balanced diet
+feeding gloopy a balanced diet
 keywords:
 	
 	"feed" X
@@ -17,3 +18,31 @@ keywords:
 	
 	"feeding gubbie a balanced diet"
 	"gubbies balanced diet"
+
+
+
+
+details of mechanics:
+	
+	"Cards" are the things that make up your deck. They cost energy to play and put "Items" on the scale when played
+	"Items" have a weight and their own effects
+	
+	Cards and Items will typically come in pairs, but not always
+	
+	if the effects are simple, then the Card and Item can share a title
+	
+	example pair:
+		Card:
+			title: Ice Cube
+			cost: 2
+			description: Place an Ice Cube on the scale
+			rarity: common
+		Item:
+			title: Ice Cube
+			weight: 3
+			effect: -1 weight each time you play a card
+	
+	Cards dont need to spawn anything, they can do other stuff too
+	
+	Cards don't respond to stuff, Items do
+	

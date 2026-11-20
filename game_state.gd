@@ -23,9 +23,31 @@ var energy:int
 var shop_reroll_price:int
 
 
-var cards_in_party:Array
-var cards_on_left_plate:Array
-var cards_on_right_plate:Array
+func item_column(side:Constants.Side,index:int) -> Array[Item]:
+	match side:
+		Constants.Side.left:
+			match index:
+				0:return left_plate_col_0
+				1:return left_plate_col_1
+				2:return left_plate_col_2
+		Constants.Side.right:
+			match index:
+				0:return right_plate_col_0
+				1:return right_plate_col_1
+				2:return right_plate_col_2
+	assert(false, "invalid column")
+	return []
+var left_plate_col_0:Array[Item] ## left column
+var left_plate_col_1:Array[Item] ## middle column
+var left_plate_col_2:Array[Item] ## right column
+
+var right_plate_col_0:Array[Item]
+var right_plate_col_1:Array[Item]
+var right_plate_col_2:Array[Item]
+
+
+
+#var cards_in_party:Array[Card]
 var cards_in_draw_pile:Array
 var cards_in_hand:Array
 var cards_in_discard_pile:Array

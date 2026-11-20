@@ -5,7 +5,7 @@ extends Node
 var data:Dictionary[String, CardData]
 var data_raw:Array[CardData] = [
 	CardData.new(
-		"test",
+		"test", ## uid
 		{ ## attributes
 			
 		},
