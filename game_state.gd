@@ -69,10 +69,16 @@ func update_balance() -> int:
 func play_card(card:Card, side:Constants.Side) -> void:
 	prints("playing", card, "on", Constants.Side.keys()[side])
 	
-	## animate put card on scale
+	## check if have enough energy?
 	
-	## animate balance change
+	## animate/trigger energy spent
+	
+	## animate/trigger put card on scale
+	
+	## animate/trigger balance change
 	SignalBus.balance_changed.emit(0)
+	
+	
 	
 	
 	
