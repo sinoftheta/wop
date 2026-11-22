@@ -5,15 +5,19 @@ extends Node2D
 ## In reality resonant frequency depends on an objects mass
 ## try animating SOD.f depending on the scales net weight
 
+func _ready() -> void:
+	SignalBus.balance_changed.connect(_on_balance_changed)
 
+func _on_balance_changed(balance:int) -> void:
+	animated_balance = -balance
+	delta_balance_impulse = -3
+	target_resonant_frequency = 5.0
 
-func animate_add_card(_card:Card, _side:Constants.Side) -> void:
-	pass
-
-func animate_balance(delta_balance:int, net_weight:int) -> void:
-	animated_balance += delta_balance
-	delta_balance_impulse = -delta_balance * 3
-	target_resonant_frequency = 1.0 / (absf(net_weight) + 5.0)
+## old
+#func animate_balance(delta_balance:int, net_weight:int) -> void:
+	#animated_balance += delta_balance
+	#delta_balance_impulse = -delta_balance * 3
+	#target_resonant_frequency = 1.0 / (absf(net_weight) + 5.0)
 	
 
 var animated_balance:int
@@ -47,57 +51,4 @@ func _process(delta: float) -> void:
 	%LeftPlate.position  = Vector2.LEFT .rotated(angle) * 50
 	#(%LeftPlatePile as PlatePile).pinned_point_offset = %LeftPlate.position + Vector2(0, 20)
 	
-	queue_redraw()
 	delta_balance_impulse *= 0.5
-
-func _draw() -> void:
-	#draw_circle(Vector2.RIGHT.rotated(angle) * 50, 2, Color.RED)
-	
-	## draw debug left  objects on the scale
-	for i:int in debug_left:
-		draw_circle((
-				%LeftPlate.position + 
-				pile_base_points[i % 3] +
-				(i / 3) * Vector2(0,-pile_spacing) ## x could be a random offset here
-			),
-			1,
-			Color.AQUA
-		)
-		
-		
-	## draw debug right objects on the scale
-	for i:int in debug_right:
-		draw_circle((
-				%RightPlate.position + 
-				pile_base_points[i % 3] +
-				(i / 3) * Vector2(0,-pile_spacing) ## x could be a random offset here
-			),
-			1,
-			Color.CRIMSON
-		)
-
-	
-
-const pile_spacing:float = 3
-const pile_base_points:Array[Vector2] = [
-	Vector2(-10,-pile_spacing), ## left
-	Vector2.ZERO, ## middle
-	Vector2(10,-pile_spacing) ## right
-]
-
-var debug_left:int = 0
-var debug_right:int = 0
-
-func _on_debug_inc_balance_pressed() -> void:
-	
-	debug_right += 1
-	
-	animate_balance(1, animated_balance + 1)
-	%DebugBalanceReadout.text = str(animated_balance)
-
-func _on_debug_dec_balance_pressed() -> void:
-	
-	debug_left += 1
-	
-	animate_balance(-1, animated_balance - 1)
-	%DebugBalanceReadout.text = str(animated_balance)

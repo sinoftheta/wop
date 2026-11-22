@@ -1,6 +1,8 @@
 ## GameState autoload
 extends Node
 
+var card_tscn:PackedScene = preload("res://card.tscn")
+var item_tscn:PackedScene = preload("res://item.tscn")
 
 ## what if you combine turns and rounds... yeah woah that might be dope??
 ## simpler = better
@@ -23,28 +25,14 @@ var energy:int
 var shop_reroll_price:int
 
 
-func item_column(side:Constants.Side,index:int) -> Array[Item]:
-	match side:
-		Constants.Side.left:
-			match index:
-				0:return left_plate_col_0
-				1:return left_plate_col_1
-				2:return left_plate_col_2
-		Constants.Side.right:
-			match index:
-				0:return right_plate_col_0
-				1:return right_plate_col_1
-				2:return right_plate_col_2
-	assert(false, "invalid column")
-	return []
-var left_plate_col_0:Array[Item] ## left column
-var left_plate_col_1:Array[Item] ## middle column
-var left_plate_col_2:Array[Item] ## right column
 
-var right_plate_col_0:Array[Item]
-var right_plate_col_1:Array[Item]
-var right_plate_col_2:Array[Item]
-
+var item_zones:Array[ItemZone]
+func _ready() -> void:
+	item_zones.sort_custom(func (a:ItemZone,b:ItemZone) -> bool:
+		if a.side > b.side:
+			return true
+		return a.column_number > b.column_number
+	)
 
 
 #var cards_in_party:Array[Card]
@@ -66,8 +54,19 @@ var card_choosing_side:Card:
 func update_balance() -> int:
 	return 0
 
-func play_card(card:Card, side:Constants.Side) -> void:
+
+func next_free_column(side:Constants.Side) -> int:
+	return randi_range(0,2)#0
+func input_play_card(card:Card, side:Constants.Side) -> void:
 	prints("playing", card, "on", Constants.Side.keys()[side])
+	var s:int = 0 if side == Constants.Side.left else 1
+	
+	
+	
+	
+	
+	
+	## determine next column to place the item
 	
 	## check if have enough energy?
 	
@@ -76,9 +75,32 @@ func play_card(card:Card, side:Constants.Side) -> void:
 	## animate/trigger put card on scale
 	
 	## animate/trigger balance change
-	SignalBus.balance_changed.emit(0)
 	
 	
+	## discard card
+	
+	## instantiate & place item on scale
+	var new_item:Item = item_tscn.instantiate()
+	var i:int = s * 3 + next_free_column(side)
+	item_zones[i].add_child(new_item)
+	
+	var balance:int = (
+		item_zones[0].get_child_count() +
+		item_zones[1].get_child_count() +
+		item_zones[2].get_child_count() -
+		
+		item_zones[3].get_child_count() -
+		item_zones[4].get_child_count() -
+		item_zones[5].get_child_count()
+	)
+	prints("balance:",balance)
+	SignalBus.balance_changed.emit(
+		balance
+	)
 	
 	
-	
+func input_redraw() -> void:
+	pass
+
+func input_clear_scale() -> void:
+	pass

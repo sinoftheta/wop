@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cx42ke3f8l4fi" path="res://card_zone.gd" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://df6q0vcgwhg8i" path="res://arrow.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b8jsnh0othsx8" path="res://scale_plate.tscn" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://b8xkyayu2wlxc" path="res://balance.gd" id="6_7mycd"]
 
 [node name="Main" type="Node2D" unique_id=768261063]
 
@@ -51,3 +52,14 @@ side = 1
 [node name="Arrow" parent="." unique_id=1844010288 instance=ExtResource("3_h2yge")]
 z_index = 4
 p0 = Vector2(11, 0)
+
+[node name="Balance" type="Label" parent="." unique_id=1727969534]
+offset_left = 143.0
+offset_top = -100.0
+offset_right = 209.0
+offset_bottom = -51.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Balance:
+0"
+horizontal_alignment = 1
+script = ExtResource("6_7mycd")

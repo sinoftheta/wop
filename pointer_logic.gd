@@ -85,6 +85,6 @@ func _physics_process(delta:float) -> void:
 				if GameState.card_choosing_side:
 					## NOTE: we assume the only "other" area is ScalePlateArea
 					
-					GameState.play_card(GameState.card_choosing_side, (hovered_area as ScalePlateArea).side)
+					GameState.input_play_card(GameState.card_choosing_side, (hovered_area as ScalePlateArea).side)
 					GameState.card_choosing_side = null
 			
