@@ -68,6 +68,10 @@ func _physics_process(delta:float) -> void:
 		hovered_area = null
 		hover_type = HoverType.nothing
 	
+	if Input.is_action_just_pressed("mouse_right"):
+		GameState.card_choosing_side = null
+		return
+	
 	## act depending on the hovered area I guess
 	if Input.is_action_just_pressed("mouse_left"):
 		match hover_type:

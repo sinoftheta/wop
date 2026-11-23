@@ -2,7 +2,7 @@ class_name Arrow extends Node2D
 
 func _ready() -> void:
 	SignalBus.card_choosing_side_updated.connect(_on_card_choosing_side_updated)
-	
+	SignalBus.hovered_area_updated.connect(_on_hovered_area_updated)
 	set_process(false)
 	visible = false
 
@@ -18,8 +18,35 @@ func _on_card_choosing_side_updated(card:Card) -> void:
 		set_process(false)
 
 
+func _on_hovered_area_updated(area:Area2D) -> void:
+	## check if area is our area
+	if area is ScalePlateArea:
+		looping_animation()
+	else:
+		if tween:tween.kill()
+		if not visible: return
+		for part:Sprite2D in get_children():
+			part.scale = Vector2.ONE
+
+var tween:Tween
+const t:float = 0.075
+func looping_animation() -> void:
+	if tween:tween.kill()
+	tween = create_tween().set_parallel(true).set_loops()
+	for part:Sprite2D in get_children():
+		part.scale = Vector2.ONE
+		tween.tween_property(part, "scale", Vector2.ONE, t)\
+		.from(Vector2.ONE * 2.5)\
+		.set_ease(Tween.EASE_OUT)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_delay(0.25 * t * part.get_index())
+	tween.tween_interval(1.0)
+
+
+
+
 ## one of these is start, one is end, and one is control
-@export var p0:Vector2 ## start point
+var p0:Vector2 ## start point
 var p1:Vector2 ## control point
 var p2:Vector2 ## end point
 
@@ -27,11 +54,15 @@ var p2:Vector2 ## end point
 ## https://en.wikipedia.org/wiki/B%C3%A9zier_curve
 func _process(_delta: float) -> void:
 	
-	p0 = cur_card.handle_position
+	p0 = cur_card.handle_position + Vector2(0, -35) ## start above card
 	p2 = get_global_mouse_position()
 	
-	p1.y = (p2.y - p0.y) * 2.0 ## control is vertically (proportinally) above end point
-	p1.x = (p2.x - p0.x) * 0.5 ## control is horizontally at the midpoint of start and end
+	#p1.y = (p2.y - p0.y) * 1.0 ## control is vertically (proportinally) above end point
+	#p1.x = (p2.x + p0.x) * 0.5 ## control is horizontally at the midpoint of start and end
+	
+	# not quite right, pointer should point towards away from card?
+	p1.y = p2.y + 1.0 ## tiny bit above mouse point
+	p1.x = sign(p1.x) * 10 + p1.x * 0.1 + p2.x
 	
 	
 	for i:int in get_child_count():
