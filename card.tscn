@@ -14,6 +14,7 @@ script = ExtResource("1_rjlel")
 [node name="Handle" type="Node2D" parent="." unique_id=179444546]
 unique_name_in_owner = true
 top_level = true
+scale = Vector2(1.2, 1.2)
 
 [node name="Area2D" type="Area2D" parent="Handle" unique_id=386927900]
 unique_name_in_owner = true
