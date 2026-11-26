@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dosihob3vq1mo" path="res://item_area.gd" id="2_ttk8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf75p"]
-size = Vector2(32, 16)
+size = Vector2(16, 8)
 
 [node name="Item" type="Node2D" unique_id=997752233]
 script = ExtResource("1_ttk8k")
@@ -14,8 +14,9 @@ script = ExtResource("1_ttk8k")
 unique_name_in_owner = true
 texture = ExtResource("2_kg5e7")
 
-[node name="Area" type="Area2D" parent="." unique_id=685519442]
+[node name="Area2D" type="Area2D" parent="." unique_id=685519442]
+unique_name_in_owner = true
 script = ExtResource("2_ttk8k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=927817488]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=927817488]
 shape = SubResource("RectangleShape2D_qf75p")

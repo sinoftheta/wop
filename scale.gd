@@ -35,15 +35,10 @@ func _process(delta: float) -> void:
 	## AND a sway term thats just a sinusoid
 	
 	steady_state_angle = lerpf(steady_state_angle, 0.2 * 2.0 * atan(animated_balance * 0.2) / PI, delta * 3)
-	resonant_frequency = lerpf(resonant_frequency, target_resonant_frequency,                     delta * 3)
 	#(%SOD as SOD).f = resonant_frequency ## this kills the scale
 	
 	## update angle
-	angle = (
-		steady_state_angle + ## steady state angle
-		sin(Engine.get_frames_drawn() * 0.016 * resonant_frequency) * 0.01 +
-		(%SOD as SOD).update(delta, 0, delta_balance_impulse) * 10 ## 
-	)
+	angle = steady_state_angle + (%SOD as SOD).update(delta, 0, delta_balance_impulse) * 10
 	
 	%Bar.rotation = angle
 	

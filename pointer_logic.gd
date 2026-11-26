@@ -17,6 +17,7 @@ var hovered_area:Area2D:
 
 enum HoverType {
 	card,
+	item,
 	other,
 	nothing
 }
@@ -36,6 +37,7 @@ func _physics_process(delta:float) -> void:
 	current_gamefield_collisions = space.intersect_point(parameters)
 	
 	var card_areas:Array[CardArea]
+	var item_areas:Array[ItemArea]
 	var other_areas:Array[Area2D]
 	
 	for collision_result:Dictionary in current_gamefield_collisions:
@@ -45,12 +47,17 @@ func _physics_process(delta:float) -> void:
 		
 		if collision_result.collider is CardArea:
 			card_areas.push_back(collision_result.collider as CardArea)
+		elif collision_result.collider is ItemArea:
+			item_areas.push_back(collision_result.collider as ItemArea)
 		else:
 			other_areas.push_back(collision_result.collider as Area2D)
 		
 	
 	card_areas.sort_custom(func (a:CardArea, b:CardArea) -> bool:
 		return a.card.z_index + a.card.get_index() > b.card.z_index + b.card.get_index()
+	)
+	item_areas.sort_custom(func (a:ItemArea, b:ItemArea) -> bool:
+		return a.item.z_index + a.item.get_index() > b.item.z_index + b.item.get_index()
 	)
 	
 	## NOTE:
@@ -61,6 +68,8 @@ func _physics_process(delta:float) -> void:
 	if card_areas.size() > 0:
 		hovered_area = card_areas[0]
 		hover_type = HoverType.card
+	elif item_areas.size() > 0 and not GameState.card_choosing_side:
+		hovered_area = item_areas[0]
 	elif other_areas.size() > 0:
 		hovered_area = other_areas[0]
 		hover_type = HoverType.other
@@ -68,6 +77,8 @@ func _physics_process(delta:float) -> void:
 		hovered_area = null
 		hover_type = HoverType.nothing
 	
+	
+	## card selected and choosing state
 	if Input.is_action_just_pressed("mouse_right"):
 		GameState.card_choosing_side = null
 		return

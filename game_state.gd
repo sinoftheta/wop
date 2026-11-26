@@ -49,6 +49,10 @@ var card_choosing_side:Card:
 		if card_choosing_side == card: return
 		card_choosing_side = card
 		SignalBus.card_choosing_side_updated.emit(card)
+		if card:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 ## UHHH man lol
 func update_balance() -> int:
@@ -56,15 +60,36 @@ func update_balance() -> int:
 
 
 func next_free_column(side:Constants.Side) -> int:
-	return randi_range(0,2)#0
+	var s:int = 0 if side == Constants.Side.left else 3
+	## smallest of the 3 columns with middle -> left -> right as the precident
+	
+	var mid_count :int = item_zones[s + 0].get_child_count()
+	var left_count  :int = item_zones[s + 1].get_child_count()
+	var right_count:int = item_zones[s + 2].get_child_count()
+	
+	
+	if mid_count <= right_count and mid_count <= left_count:
+		return 0
+	if left_count < right_count:
+		return 1
+	return 2
+	
+	### mid column has priority
+	#if mid_count <= left_count and mid_count <= right_count:
+		#return 1
+	#
+	### then left column
+	#if left_count < mid_count and left_count <= right_count:
+		#return 0
+	#
+	### finally right column
+	#return 2
+	
+	
+
 func input_play_card(card:Card, side:Constants.Side) -> void:
-	prints("playing", card, "on", Constants.Side.keys()[side])
+	
 	var s:int = 0 if side == Constants.Side.left else 1
-	
-	
-	
-	
-	
 	
 	## determine next column to place the item
 	
@@ -79,9 +104,11 @@ func input_play_card(card:Card, side:Constants.Side) -> void:
 	
 	## discard card
 	
+	var nfc:int = next_free_column(side)
+	prints("playing", card, "on", Constants.Side.keys()[side], "in column", nfc)
 	## instantiate & place item on scale
 	var new_item:Item = item_tscn.instantiate()
-	var i:int = s * 3 + next_free_column(side)
+	var i:int = s * 3 + nfc
 	item_zones[i].add_child(new_item)
 	
 	var balance:int = (
@@ -97,6 +124,9 @@ func input_play_card(card:Card, side:Constants.Side) -> void:
 	SignalBus.balance_changed.emit(
 		balance
 	)
+	
+	card.get_parent().remove_child(card)
+	card.queue_free()
 	
 	
 func input_redraw() -> void:

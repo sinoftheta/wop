@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://crl10rio5s4va"]
+
+[ext_resource type="Script" uid="uid://cyfhl4yqw4f02" path="res://points_bar.gd" id="1_1tdwf"]
+[ext_resource type="Script" uid="uid://b13jpboio5avl" path="res://UIArea.gd" id="2_v8okd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf75p"]
+size = Vector2(386, 23)
+
+[node name="PointsBar" type="Node2D" unique_id=270109159]
+script = ExtResource("1_1tdwf")
+
+[node name="Back" type="ColorRect" parent="." unique_id=1464842652]
+offset_right = 386.0
+offset_bottom = 23.0
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+
+[node name="Preview" type="ColorRect" parent="." unique_id=861988104]
+offset_right = 159.0
+offset_bottom = 23.0
+color = Color(0, 0.29055098, 0.23596159, 1)
+
+[node name="Animated" type="ColorRect" parent="." unique_id=623482283]
+offset_right = 40.0
+offset_bottom = 23.0
+color = Color(0, 1, 0.5019608, 1)
+
+[node name="Label" type="Label" parent="." unique_id=536369983]
+offset_right = 386.0
+offset_bottom = 23.0
+text = "0/100"
+horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=631891818]
+script = ExtResource("2_v8okd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=165571419]
+position = Vector2(193, 11.5)
+shape = SubResource("RectangleShape2D_qf75p")

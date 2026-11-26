@@ -3,9 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://blafhqp5pjhn4" path="res://card.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dess2gctvp2j" path="res://scale.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cx42ke3f8l4fi" path="res://card_zone.gd" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://crl10rio5s4va" path="res://points_bar.tscn" id="2_5vw27"]
 [ext_resource type="PackedScene" uid="uid://df6q0vcgwhg8i" path="res://arrow.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b8jsnh0othsx8" path="res://scale_plate.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://b8xkyayu2wlxc" path="res://balance.gd" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c1yexgl7d4y8i" path="res://tooltip.tscn" id="7_272bh"]
 
 [node name="Main" type="Node2D" unique_id=768261063]
 
@@ -22,6 +24,23 @@ mouse_filter = 2
 
 [node name="Scale" parent="." unique_id=592840729 instance=ExtResource("2_0xm2m")]
 scale = Vector2(1.5, 1.5)
+
+[node name="PointsBar" parent="." unique_id=1464842652 instance=ExtResource("2_5vw27")]
+position = Vector2(-188, -164)
+
+[node name="EndTurn" type="Button" parent="." unique_id=399643119]
+offset_left = 182.0
+offset_top = 49.0
+offset_right = 260.0
+offset_bottom = 80.0
+text = "End Turn"
+
+[node name="EndRound" type="Button" parent="." unique_id=1699048848]
+offset_left = 195.0
+offset_top = 7.0
+offset_right = 274.0
+offset_bottom = 38.0
+text = "Cash Out"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1368938675]
 
@@ -53,12 +72,17 @@ side = 1
 z_index = 4
 
 [node name="Balance" type="Label" parent="." unique_id=1727969534]
-offset_left = 143.0
-offset_top = -100.0
-offset_right = 209.0
-offset_bottom = -51.0
+offset_left = 202.0
+offset_top = -53.0
+offset_right = 268.0
+offset_bottom = -4.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Balance:
 0"
 horizontal_alignment = 1
 script = ExtResource("6_7mycd")
+
+[node name="TTLayer" type="CanvasLayer" parent="." unique_id=506152688]
+follow_viewport_enabled = true
+
+[node name="Tooltip" parent="TTLayer" unique_id=1856955126 instance=ExtResource("7_272bh")]

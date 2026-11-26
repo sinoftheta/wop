@@ -35,7 +35,7 @@ func looping_animation() -> void:
 	tween = create_tween().set_parallel(true).set_loops()
 	for part:Sprite2D in get_children():
 		part.scale = Vector2.ONE
-		tween.tween_property(part, "scale", Vector2.ONE, t)\
+		tween.tween_property(part, "scale", Vector2.ONE, t * 2.5)\
 		.from(Vector2.ONE * 2.5)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_BACK)\
@@ -55,16 +55,19 @@ var p2:Vector2 ## end point
 func _process(_delta: float) -> void:
 	
 	p0 = cur_card.handle_position + Vector2(0, -35) ## start above card
-	p2 = get_global_mouse_position()
+	p2 = get_global_mouse_position() ##TODO: translate this so the point is actually on the mouse point... oh damn thats tricky??
 	
 	#p1.y = (p2.y - p0.y) * 1.0 ## control is vertically (proportinally) above end point
 	#p1.x = (p2.x + p0.x) * 0.5 ## control is horizontally at the midpoint of start and end
 	
+	# anchor should tween between left and right positions
 	# not quite right, pointer should point towards away from card?
-	p1.y = p2.y + 1.0 ## tiny bit above mouse point
-	p1.x = sign(p1.x) * 10 + p1.x * 0.1 + p2.x
+	p1.y = lerpf(p1.y, p2.y + 1.0, 0.3) ## tiny bit above mouse point
 	
+	#p1.y = minf(p1.y, 10)
+	p1.x = lerpf(p1.x, p0.x - (p2.x - p0.x) * 0.5 - sign(p2.x - p0.x) * 20, 0.3)
 	
+	var final_db_t:Vector2
 	for i:int in get_child_count():
 		var t:float = float(i)/float(get_child_count()-1)
 		var b_t:Vector2  = (1-t)*(1-t)*p0 + 2*(1-t)*t*p1 + t*t*p2 ## function aka position
@@ -74,6 +77,10 @@ func _process(_delta: float) -> void:
 		part.scale = Vector2.ONE * 0.333 * (2.0 + t)
 		part.position = b_t
 		part.rotation = db_t.angle() + PI * 0.5
+		
+		final_db_t = db_t
+	
+	position = -final_db_t.normalized() * 6.0
 		
 	#queue_redraw()
 

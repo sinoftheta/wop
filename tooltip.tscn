@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c1yexgl7d4y8i"]
+
+[ext_resource type="Script" uid="uid://cg8imr1lj8uqg" path="res://tooltip.gd" id="1_gwequ"]
+[ext_resource type="Texture2D" uid="uid://btxyd28ujjppu" path="res://icon.svg" id="2_oxk8h"]
+
+[node name="Tooltip" type="Node2D" unique_id=1856955126]
+script = ExtResource("1_gwequ")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1431597157]
+texture = ExtResource("2_oxk8h")
