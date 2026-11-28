@@ -23,7 +23,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Scale" parent="." unique_id=592840729 instance=ExtResource("2_0xm2m")]
-scale = Vector2(1.5, 1.5)
+editor_description = "needs to be 1.5x ish scale"
 
 [node name="PointsBar" parent="." unique_id=1464842652 instance=ExtResource("2_5vw27")]
 position = Vector2(-188, -164)
@@ -60,6 +60,18 @@ length = 300.0
 [node name="Card5" parent="HandCardZone" unique_id=2016795855 instance=ExtResource("1_ig7tw")]
 
 [node name="Card6" parent="HandCardZone" unique_id=430100244 instance=ExtResource("1_ig7tw")]
+
+[node name="Card7" parent="HandCardZone" unique_id=1932450412 instance=ExtResource("1_ig7tw")]
+
+[node name="Card8" parent="HandCardZone" unique_id=1773948163 instance=ExtResource("1_ig7tw")]
+
+[node name="Card9" parent="HandCardZone" unique_id=1311941856 instance=ExtResource("1_ig7tw")]
+
+[node name="Card10" parent="HandCardZone" unique_id=1575533493 instance=ExtResource("1_ig7tw")]
+
+[node name="Card11" parent="HandCardZone" unique_id=27780844 instance=ExtResource("1_ig7tw")]
+
+[node name="Card12" parent="HandCardZone" unique_id=152522769 instance=ExtResource("1_ig7tw")]
 
 [node name="ScalePlateL" parent="." unique_id=1880027680 instance=ExtResource("4_lquwl")]
 position = Vector2(-72, -18)

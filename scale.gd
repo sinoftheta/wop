@@ -29,6 +29,7 @@ var resonant_frequency:float
 
 var angle:float
 
+const PLATE_WIDTH:float = 150
 func _process(delta: float) -> void:
 	## hmm I need like a steady state angle ~arctan(balance)
 	## and a balance_change_resonance_angle(delta_balance)
@@ -42,8 +43,8 @@ func _process(delta: float) -> void:
 	
 	%Bar.rotation = angle
 	
-	%RightPlate.position = Vector2.RIGHT.rotated(angle) * 50
-	%LeftPlate.position  = Vector2.LEFT .rotated(angle) * 50
+	%RightPlate.position = Vector2.RIGHT.rotated(angle) * PLATE_WIDTH * 0.5
+	%LeftPlate.position  = Vector2.LEFT .rotated(angle) * PLATE_WIDTH * 0.5
 	#(%LeftPlatePile as PlatePile).pinned_point_offset = %LeftPlate.position + Vector2(0, 20)
 	
 	delta_balance_impulse *= 0.5

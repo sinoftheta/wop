@@ -3,7 +3,7 @@ class_name Item extends Node2D
 
 ## Logic
 
-var weight:int
+var weight:int = 1
 ## var data:ItemData
 
 var siblings:int:
@@ -26,7 +26,7 @@ func _ready() -> void:
 func _on_hovered_area_updated(area:Area2D) -> void:
 	hovered = %Area2D == area
 
-const ITEM_HEIGHT:float = 5#3.0
+const ITEM_HEIGHT:float = 16#3.0
 func _process(_delta: float) -> void:
 	position = Vector2(
 		0, ## TODO: random (or wandering?) x offset based on index

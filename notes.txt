@@ -79,3 +79,8 @@ creature/action/food as types
 demon/animal instead of creature maybe idk
 
 you're a jester and you're performing a balancing act in the kings court
+
+happens once, at a moment -> card effect
+happens in reaction to something -> item effect
+
+jokers aka relics -> more meta effects, like shop traversal, powerful item effects. You don't have to overthink this, they're just the same class as item effects, just will have more influence/synergies over the build. you also don't NEED them... could be cool though

@@ -15,41 +15,43 @@ show_behind_parent = true
 position = Vector2(0, -24)
 texture = ExtResource("1_6s6ql")
 
-[node name="LeftPlate" type="Sprite2D" parent="." unique_id=702723360]
+[node name="LeftPlate" type="Node2D" parent="." unique_id=1273675148]
 unique_name_in_owner = true
-show_behind_parent = true
 position = Vector2(-48, 0)
+
+[node name="Plate" type="Sprite2D" parent="LeftPlate" unique_id=692890847]
 texture = ExtResource("2_03o5o")
 
 [node name="ItemZone2" parent="LeftPlate" unique_id=94125365 instance=ExtResource("4_th1oe")]
-position = Vector2(-16, 0)
+position = Vector2(-26, 0)
 column_number = 2
 
 [node name="ItemZone1" parent="LeftPlate" unique_id=611167684 instance=ExtResource("4_th1oe")]
-position = Vector2(16, 0)
+position = Vector2(26, 0)
 column_number = 1
 
 [node name="ItemZone0" parent="LeftPlate" unique_id=1168490987 instance=ExtResource("4_th1oe")]
-position = Vector2(0, 4)
+position = Vector2(0, 6)
 
-[node name="RightPlate" type="Sprite2D" parent="." unique_id=387648366]
+[node name="RightPlate" type="Node2D" parent="." unique_id=1757953848]
 unique_name_in_owner = true
-show_behind_parent = true
 position = Vector2(49, 0)
+
+[node name="Plate" type="Sprite2D" parent="RightPlate" unique_id=333862131]
 texture = ExtResource("2_03o5o")
 
 [node name="ItemZone2" parent="RightPlate" unique_id=1840019469 instance=ExtResource("4_th1oe")]
-position = Vector2(-16, 0)
+position = Vector2(-26, 0)
 side = 1
 column_number = 2
 
 [node name="ItemZone1" parent="RightPlate" unique_id=1918185082 instance=ExtResource("4_th1oe")]
-position = Vector2(16, 0)
+position = Vector2(26, 0)
 side = 1
 column_number = 1
 
 [node name="ItemZone0" parent="RightPlate" unique_id=201198833 instance=ExtResource("4_th1oe")]
-position = Vector2(0, 4)
+position = Vector2(0, 6)
 side = 1
 
 [node name="Bar" type="Sprite2D" parent="." unique_id=1026868260]
